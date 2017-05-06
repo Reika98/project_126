@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'project_126.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'djangogirls',
-        'USER': 'name',
-        'PASSWORD': '',
+        'NAME': 'orgsite',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': '',
     }

@@ -1,0 +1,11 @@
+{% extends "header.html" %}
+
+{% block content %}
+
+    <ul>
+        {% for org in orgs %}
+            <li>{{ org.Org_Name }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
