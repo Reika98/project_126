@@ -10,10 +10,9 @@ class Organization(models.Model):
     email = models.EmailField()
     phone = models.CharField(primary_key=True, max_length=10, validators=[RegexValidator(r'^\d{1,10}$')])
     description = models.TextField()
+    image = models.ImageField(upload_to='org_logo', blank=True)
 
     def __str__(self):
         return self.Org_Name
-
-    
 
     

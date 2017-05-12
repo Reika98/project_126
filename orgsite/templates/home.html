@@ -2,10 +2,21 @@
 
 {% block content %}
 
-    <ul>
-        {% for org in orgs %}
-            <li>{{ org.Org_Name }}</li>
-        {% endfor %}
-    </ul>
+    <header>
+        <div class="intro">
+            <h1><span>ORGANIZATION SITE</span><br>UNISO cares. XD</h1>
+        </div>
+    </header>
+
+    <section id="organizations">
+        <ul>
+            {% for org in orgs %}
+                <li>
+                    <img src="{{ org.image.url }}" width="50">
+                    {{ org.Org_Name }}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
 
 {% endblock %}
