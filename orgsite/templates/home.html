@@ -1,7 +1,11 @@
-{% extends "header.html" %}
+{% extends "index.html" %}
+
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" type = "text/css"/>
+{% endblock %}
 
 {% block content %}
-
     <header>
         <div class="intro">
             <h1><span>ORGANIZATION SITE</span><br>UNISO cares. XD</h1>
@@ -9,14 +13,39 @@
     </header>
 
     <section id="organizations">
-        <ul>
-            {% for org in orgs %}
-                <li>
-                    <img src="{{ org.image.url }}" width="50">
-                    {{ org.Org_Name }}
-                </li>
-            {% endfor %}
-        </ul>
-    </section>
+        <input type="text" id="search-input" onkeyup="searchOrg()" placeholder="Search for orgs..">
 
+
+        <div class="sort-buttons">
+            <button class="group" onclick="showAll()">All</button>
+            <button class="group" id="sports-group" onclick="byCategory('SPORTS')">Sports</button>
+            <button class="group" id="course-group" onclick="byCategory('COURSE-BASED')">Course-based</button>
+            <button class="group" id="batch-group" onclick="byCategory('BATCH')">Batch</button>
+        </div>
+
+        <div class="org-list-content">
+            <ul class="list-unstyled" id="org-list">
+                {% for org in orgs %}
+                <li class="org-list-item ">
+                    <tr>
+                        <td>
+                        {% if org.image %}
+                            <img id="org-logo" src="{{ org.image.url }}" width="50" height="50">
+                        {% endif %}
+                        </td>
+                        <td class="text-center">
+                            <a class="org-a" href="#">{{ org.shortcut }}</a>
+                            <input type="hidden" value="{{ org.category }}">
+                        </td>
+                    </tr>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'js/home.js' %}"></script>
 {% endblock %}

@@ -2,19 +2,136 @@
     text-align: center;
     background-color: #2E86C1;
     color: white;
-    padding-top: 110px;
-    min-height: 500px;
+    vertical-align: center;
     margin: 0;
     overflow: auto;
+    padding-bottom: 50px;
+
 }
 
 #organizations {
     background-color: #F7DC6F;
 }
 
-section {
-    padding: 50px;
-    width: 100%;
-    height: 100%;
+.org-a {
+    color: black;
+}
+
+#org-logo {
+    padding: 0px;
+}
+
+#search-input {
+    /*background-image: url('/css/searchicon.png');  Add a search icon to input */
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+}
+
+#org-list {
+    /* Remove default list styling */
+    list-style-type: none;
+    padding: 0;
     margin: 0;
+}
+
+
+
+
+@media only screen and (min-width : 320px) {
+    section {
+        padding-top: 50px;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-bottom: 50px;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+
+    .intro {
+        padding-top: 100px;
+        min-height: 250px;
+    }
+
+    .intro > h1 {
+        font-size: 25px;
+    }
+
+    .list-unstyled {
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+    }
+
+
+}
+
+@media only screen and (min-width : 768px) {
+    .intro {
+        padding-top: 120px;
+        min-height: 350px;
+    }
+
+    .intro > h1 {
+        font-size: 30px;
+    }
+
+    .list-unstyled {
+        columns: 3;
+        -webkit-columns: 3;
+        -moz-columns: 3;
+    }
+
+    .org-list-item {
+        margin-top: 5px;
+    }
+
+    .org-a {
+        font-size: 20px;
+    }
+
+    .org-list-item {
+        vertical-align: middle; 
+        height: 100%;
+    }
+
+}
+
+
+@media only screen and (min-width : 992px) {
+    section {
+        padding-top: 50px;
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-bottom: 50px;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+
+    .intro {
+        padding-top: 180px;
+        min-height: 500px;
+    }
+
+    .intro > h1 {
+        font-size: 40px;
+    }
+
+
+    .org-a {
+        font-size: 30px;
+    }
+
+    .org-list-item {
+        vertical-align: middle; 
+        height: 100%;
+        padding: 5px;
+    }
+
 }
