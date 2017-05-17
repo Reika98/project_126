@@ -15,29 +15,29 @@
     <section id="organizations">
         <input type="text" id="search-input" onkeyup="searchOrg()" placeholder="Search for orgs..">
 
-
         <div class="sort-buttons">
-            <button class="group" onclick="showAll()">All</button>
-            <button class="group" id="sports-group" onclick="byCategory('SPORTS')">Sports</button>
-            <button class="group" id="course-group" onclick="byCategory('COURSE-BASED')">Course-based</button>
-            <button class="group" id="batch-group" onclick="byCategory('BATCH')">Batch</button>
+            <button type="button" class="btn btn-warning btn-xs" onclick="showAll()">All</button>
+            <button type="button" class="btn btn-warning btn-xs" onclick="byCategory('SPORTS')">Sports</button>
+            <button type="button" class="btn btn-warning btn-xs" onclick="byCategory('COURSE-BASED')">Course-based</button>
+            <button type="button" class="btn btn-warning btn-xs" onclick="byCategory('BATCH')">Batch</button>
         </div>
 
         <div class="org-list-content">
             <ul class="list-unstyled" id="org-list">
                 {% for org in orgs %}
-                <li class="org-list-item ">
-                    <tr>
-                        <td>
-                        {% if org.image %}
-                            <img id="org-logo" src="{{ org.image.url }}" width="50" height="50">
+                <li type="button" class="org-list-item btn btn-default">
+                    <div class="row">
+                        <div class="org-logo col-sm-3">
+                        {% if org.logo %}
+                            <img class="img-responsive img-thumbnail" height="100%" id="org-logo" src="{{ org.logo.url }}" >
                         {% endif %}
-                        </td>
-                        <td class="text-center">
+                        </div>
+                        <div class="text-center col-sm-6">
                             <a class="org-a" href="#">{{ org.shortcut }}</a>
                             <input type="hidden" value="{{ org.category }}">
-                        </td>
-                    </tr>
+                            <input type="hidden" value="{{ org.Org_Name }}">
+                        </div>
+                    </div>
                 </li>
                 {% endfor %}
             </ul>
