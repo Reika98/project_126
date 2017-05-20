@@ -1,0 +1,47 @@
+<nav class="navbar navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'home' %}">UNISO</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse ">
+      <ul class="nav navbar-nav navbar-center">
+        <!--<li class="active"><a href="#">Home</a></li>-->
+        <li><a class="active" href="/#organizations">ORGANIZATIONS</a></li>
+        <li><a href="#">ACTIVITIES</a></li>
+        <li><a href="#">VENUES</a></li>
+        <li><a href="{% url 'faqs' %}">FAQs</a></li>  
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+          {% if request.user.is_authenticated %}
+              <li class="dropdown" id="menuUser">
+                  <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navUser">{{ request.user.organization.shortcut }}</a>
+                  <div class="dropdown-menu dropdown-menu-right" style="padding:17px;">
+                      <a href="{% url 'profile' user.username %}">PROFILE</a><br>
+                      <a href="{% url 'logout' %}">LOGOUT</a>
+                  </div>
+              </li>
+          {% else %}
+              <li class="dropdown" id="menuLogin">
+                  <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin"></span> LOGIN</a>
+                  <div class="dropdown-menu dropdown-menu-right" style="padding:17px;">
+                      <form action="{% url 'login' %}" method="POST"> 
+                          {% csrf_token %}    
+                          <label for="username">Username: </label>
+                          <input type="text" id="username" name="username" value="{{ username }}">
+                          <label for="password">Password: </label>
+                          <input type="password" id="password" name="password">
+                          <button>Login</button>
+                      </form>
+                  </div>
+              </li>
+          {% endif %}
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>

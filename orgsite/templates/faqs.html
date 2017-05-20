@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/navbar2.css' %}" type = "text/css"/>
+    <link rel="stylesheet" href="{% static 'css/faqs.css' %}" type = "text/css"/>
+{% endblock %}
+
+{% block content %}
+    <header>
+        <div class="header">
+            <h1><span>Frequently Asked Questions</span></h1>
+        </div>
+    </header>
+
+    {% for faq in faqs %}
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-success custom">
+                <div class="panel-heading">
+                    <span class="pull-left clickable panel-collapsed "><i class="glyphicon glyphicon-chevron-down"></i></span>
+                    <h3 class="panel-title">{{ faq.id }}. {{ faq.question }}</h3>
+                </div>
+                <div class="panel-body collapse">{{ faq.answer }}</div>
+            </div>
+            {% endfor %}    
+        </div>
+    </div>
+{% endblock %}	
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'js/faqs.js' %}"></script>
+{% endblock %}

@@ -22,11 +22,42 @@ class Organization(models.Model):
 
     @property
     def avatar_url(self):
+        if self.logo:
+            return self.logo.url
+        return static('img/UP_logo.png')
+
+    def render_shortcut(self):
+        return '{}'.format(self.user.username)
+
+    def __str__(self):
+        return self.Org_Name
+
+class FAQs(models.Model):
+    question = models.CharField(max_length=150)
+    answer = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.id
+
+def avatar_upload_path(instance, filename):
+    return './storage/user_{}_{}'.format(instance.user.username, filename)
+
+class Activity(models.Model):
+    user = models.ForeignKey(User, related_name='activity')
+    activity_name = models.CharField(name='Activity_Name',max_length=50)
+    description = models.TextField()
+    avatar = models.FileField(upload_to=avatar_upload_path, blank=True)
+    when_created = models.DateTimeField(auto_now_add=True)
+
+    @property
+    def avatar_url(self):
         if self.avatar:
             return self.avatar.url
         return static('img/UP_logo.png')
 
     def __str__(self):
-        return self.Org_Name
+        return self.Activity_Name
+
+
 
     

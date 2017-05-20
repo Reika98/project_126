@@ -14,7 +14,7 @@
 
 <body>
 	{% block nav %}
-		{% include "navbar.html" %}
+		{% include "navbar2.html" %}
 	{% endblock %}
 
 	<div>
@@ -22,14 +22,19 @@
 		{% endblock %}	
 	</div>
 
+
+	<!--{% block footer %}
+		{% include "footer.html" %}
+	{% endblock %}-->
+
+
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-	<script type="text/javascript" src="{% static 'js/navbar.js' %}"></script>
 
 	{% block js %}
 	{% endblock %}
 
 </body>
+
 
 </html>

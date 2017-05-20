@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
+
+.header {
+    text-align: left;
+    background-color:  green;
+    color: white;
+    vertical-align: center;
+    margin:0 auto;
+    overflow: auto;
+    padding: 100px 100px 50px 100px;
+
+}
+
+.clickable{
+    cursor: pointer;   
+}
+
+.panel-heading span {
+	margin-right: 5px;
+	font-size: 15px;
+    
+}
+
+.panel-heading {
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;    
+}
+
+.panel {
+    margin-bottom: 0;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;    
+}
+
+.custom{
+  width:85%;
+  margin:0 auto;
+  min-width:350px;
+}
+
+@media only screen and (max-width : 790px) {
+  ul.nav li {
+    margin: -5px;
+  }
+
+  .header {
+      padding: 100px 100px 50px 50px;
+  }
+
+}
