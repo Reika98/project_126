@@ -1,6 +1,7 @@
 {% extends "index.html" %}
 
 {% load static %}
+
 {% block styles %}
     <link rel="stylesheet" href="{% static 'css/profile.css' %}" type = "text/css"/>
 {% endblock %}
@@ -19,6 +20,7 @@
                     <a href="{% url 'profile' user.username %}"><span class="card-title">{{ user.organization.Org_Name }}</span></a>
                 </div>
         </div>
+
         <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
             <div class="btn-group" role="group">
                 <button type="button" id="stars" class="btn btn-default" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
@@ -38,51 +40,170 @@
         </div>
 
         <div class="well">
-            <div id="myModal" class="modal fade" role="dialog">
-              <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Modal Header</h4>
-                  </div>
-                  <div class="modal-body">
-                    <p>Some text in the modal.</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
-
-              </div>
-            </div>
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="tab1">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h1 class="panel-title pull-left">About</h1>
-                                <button type="button" class="btn btn-elegant pull-right">Edit Profile</button>
-                            </div>
-                            <div class="panel-body">
-                                <p>{{ user.organization.description }}</p>
-                            </div>
-                        </div>
+                            <ul class="timeline">
+                                <li>
+                                  <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+                                  <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                      <h3 class="timeline-title">About</h3>
+                                    </div>
+                                    <div class="timeline-body">
+                                      <p>{{ user.organization.description }}</p>
+                                    </div>
+                                  </div>
+                                </li>
+                            </ul>
+                            <ul class="timeline">
+                                <li>
+                                  <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+                                  <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                      <h3 class="timeline-title">Mission</h3>
+                                    </div>
+                                    <div class="timeline-body">
+                                      <p>{{ user.organization.mission }}</p>
+                                    </div>
+                                  </div>
+                                </li>
+                            </ul>
+                            <ul class="timeline">
+                                <li>
+                                  <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+                                  <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                      <h3 class="timeline-title">Vission</h3>
+                                    </div>
+                                    <div class="timeline-body">
+                                      <p>{{ user.organization.vision }}</p>
+                                    </div>
+                                  </div>
+                                </li>
+                            </ul>
+                            <ul class="timeline">
+                                <li>
+                                  <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+                                  <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                      <h3 class="timeline-title">Contacts</h3>
+                                    </div>
+                                    <div class="timeline-body">
+                                      <p>{{ user.organization.description }}</p>
+                                    </div>
+                                  </div>
+                                </li>
+                            </ul>
                 </div>
                 <div class="tab-pane fade in" id="tab2">
+                    {% if success %}
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Success</h4>
+                                    </div>
+                                <div class="modal-body">
+                                    <p>This is a small modal.</p>
+                                </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <p>Success <a href="{% url 'sign_in' %}">Okay</a></p>
+                    {% else %}
+                    <div class="modal fade" id="addModal" role="dialog">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form action="{% url 'add_activity' %}" method="POST" id="addactivity" enctype="multipart/form-data">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4><span class="glyphicon glyphicon-plus-sign"></span> Add Activity</h4>
+                                </div>
+                                <div class="modal-body">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="act_name"><span class="glyphicon glyphicon-user"></span> Activity Name</label>
+                                        <input name="name" type="text" class="form-control" id="act_name" placeholder="Enter name of activity">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="desc"><span class="glyphicon glyphicon-eye-open"></span> Description</label><br>
+                                        <textarea name="description" cols="75" rows="5" id="desc" placeholder="Enter brief description of activity"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="image"><span class="glyphicon glyphicon-camera"></span> Publicity Material</label><br>
+                                        <form action="/action_page.php">
+                                            <input type="file" name="avatar" accept="image/*">
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-success btn-default pull-right"><span class="glyphicon glyphicon-ok"></span> Add</button>     
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                    {% endif %}
                     {% for activity in activity %}
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h1 class="panel-title pull-left">{{ activity.Activity_Name }}</h1>
-                                <button type="button" class="btn btn-default pull-right" name="editbtn">Edit Activity</button>
+                                <ul class="btn btn-default pull-right">
+                                    <li class="dropdown" id="menuUser">
+                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navUser"><span class="glyphicon glyphicon-triangle-bottom"></span></a>
+                                        <div class="dropdown-menu dropdown-menu-right" style="padding:17px;">
+                                            <input type="hidden" value="{{ activity.id }}">
+                                            <a data-toggle="modal" href="#addModal"> Add Activity</a><br>
+                                            <a data-toggle="modal" href="#{{activity.id}}"> Edit Activity</a><br>
+                                            <a data-toggle="modal" href="{% url 'delete_activity' activity.id %}"> Delete Activity</a>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="panel-body">
-                                <img class="img-responsive" alt="" src="{{ activity.avatar_url }}">
+                            <div class="panel-body text-center">
+                                <img class="img-responsive center-block" alt="" src="{{ activity.avatar_url }}">
                                 <h3>{{ activity.description }}</h3>
                             </div>
                         </div>
-                    {% endfor %}
-                </div>
+                        <div class="modal fade" id="{{activity.id}}" role="dialog">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <input type="hidden" name="id" value="{{ activity.id }}">
+                                <form action="{% url 'edit_activity' activity.id %}" method="POST" id="addactivity" enctype="multipart/form-data">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4><span class="glyphicon glyphicon-plus-sign"></span> Edit Activity</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <label for="act_name"><span class="glyphicon glyphicon-user"></span> Activity Name</label>
+                                            <input name="name" type="text" class="form-control" id="act_name" value="{{ activity.Activity_Name }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="desc"><span class="glyphicon glyphicon-eye-open"></span> Description</label><br>
+                                            <textarea name="description" cols="75" rows="5" id="desc">{{ activity.description }}</textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="image"><span class="glyphicon glyphicon-camera"></span> Publicity Material</label><br>
+                                            <form action="/action_page.php">
+                                                <input type="file" name="avatar" accept="image/*">
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-success btn-default pull-right"><span class="glyphicon glyphicon-ok"></span> Edit</button>     
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
                 <div class="tab-pane fade in" id="tab3">
                     <h3>This is tab 3</h3>
                 </div>
@@ -92,6 +213,5 @@
 {% endblock %}
 
 {% block js %}
-    <script type="text/javascript" src="{% static 'js/navbar.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/profile.js' %}"></script>
 {% endblock %}
