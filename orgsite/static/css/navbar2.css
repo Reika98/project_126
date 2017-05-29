@@ -3,12 +3,14 @@ body {
 }
 
 .navbar {
-  position: fixed;
-  background-color: white;
-  background: white;
-  border-color: white;
+  position: absolute;
+  background-color: #EFF0EB;
+  background: #EFF0EB;
+  border-color: #EFF0EB;
   padding-top: 0px;
   margin-bottom: 0 !important;
+
+  box-shadow: 5px 0px 10px 2px black;
 }
 
 .navbar a {
