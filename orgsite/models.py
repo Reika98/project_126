@@ -18,6 +18,9 @@ class Organization(models.Model):
     email = models.EmailField()
     phone = models.CharField(primary_key=True, max_length=10, validators=[RegexValidator(r'^\d{1,10}$')])
     description = models.TextField()
+    mission = models.TextField()
+    vision = models.TextField()
+    contact = models.TextField()
     logo = models.ImageField(upload_to=logo_upload_path, blank=True)
 
     @property
@@ -47,6 +50,7 @@ class Activity(models.Model):
     activity_name = models.CharField(name='Activity_Name',max_length=50)
     description = models.TextField()
     avatar = models.FileField(upload_to=avatar_upload_path, blank=True)
+    venue = models.TextField()
     when_created = models.DateTimeField(auto_now_add=True)
 
     @property

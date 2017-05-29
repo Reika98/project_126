@@ -6,5 +6,8 @@ urlpatterns = [
     url(r'^faqs/$', views.render_faqs, name='faqs'),
     url(r'^login/$', views.login_view, name='login'),
     url(r'^logout/$', views.logout_view, name='logout'),
-    url(r'^profile/(?P<username>\w+)$', views.profile_view, name='profile')
+    url(r'^add-activity/$', views.add_activity_view, name='add_activity'),
+    url(r'^edit-activity/(?P<activity>\d+)$', views.edit_activity_view, name='edit_activity'),
+    url(r'^delete-activity/(?P<id>\d+)$', views.delete_activity_view, name='delete_activity'),
+    url(r'^(?P<username>\w+)$', views.profile_view, name='profile')
 ]
