@@ -18,6 +18,9 @@ def render_faqs(request):
 
     return render(request, 'faqs.html', context=context)
 
+def render_activities(request):
+    return render(request, 'activities.html')
+
 def login_view(request):
 	if request.user.is_authenticated:
 		return redirect('/')

@@ -1,13 +1,14 @@
-.body {
-  background-color: #EFF0EB;
+body {
+  background-color: #154360;
 }
 
 .dropdown-menu.dropdown-menu-right {
-  background-color: #EFF0EB;
+  background-color:   #154360;
+  color: white;
 }
 
 .navbar a {
-  color: black;
+  color: white;
 }
 
 .navbar {
@@ -17,6 +18,7 @@
   border-color: transparent;
   padding-top: 10px;
   margin-bottom: 0 !important;
+
 }
 
 /*.navbar-default .navbar-toggle {
@@ -42,7 +44,7 @@
 }
 
 ul.nav li a {
-  color: black;
+  color: white;
   display: inline-block;
 
   text-decoration: none;
@@ -69,8 +71,8 @@ ul.nav li a {
     top: 0;
     left: 50%;
     width: 0;
-    border-bottom: 0.15em solid #282828;
-    border-top: 0.15em solid #282828;
+    border-bottom: 0.10em solid white;
+    border-top: 0.10em solid white;
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
