@@ -28,6 +28,11 @@ ul.nav li a::after {
     background: darkgreen;
 }
 
+ul.nav li a:hover {
+  background-color: transparent;
+
+}
+
 @media only screen and (max-width : 790px) {
   ul.nav li {
     margin: -5px;
