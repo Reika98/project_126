@@ -5,11 +5,13 @@ from django.utils.datastructures import MultiValueDictKeyError
 from .models import Organization, FAQs, Activity
 
 def home(request):
-    orgs = Organization.objects.all().order_by('Org_Name')
-    context = {
-        'orgs': orgs
+	orgs = Organization.objects.all().order_by('Org_Name')
+	activities = Activity.objects.all().order_by('-when_created')[:6]
+	context = {
+        'orgs': orgs,
+		'activities': activities
     }
-    return render(request, 'home.html', context=context) 
+	return render(request, 'home.html', context=context) 
 
 def render_faqs(request):
     faqs = FAQs.objects.all().order_by('id')
@@ -18,6 +20,20 @@ def render_faqs(request):
     }
 
     return render(request, 'faqs.html', context=context)
+
+def render_activities(request):
+    activities = Activity.objects.all().order_by('when_created')
+    context = {
+		'activities': activities
+	}
+    return render(request, 'activities.html', context=context)
+
+def render_venues(request):
+    venues = Activity.objects.exclude(venue=u'')
+    context = {
+		'venues': venues
+	}
+    return render(request, 'venues.html', context=context)
 
 def login_view(request):
 	if request.user.is_authenticated:

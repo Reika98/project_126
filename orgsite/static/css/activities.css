@@ -1,0 +1,182 @@
+/*
+Ref:
+Thanks to:
+http://www.jqueryscript.net/layout/Simple-jQuery-Plugin-To-Create-Pinterest-Style-Grid-Layout-Pinterest-Grid.html
+*/
+
+body {
+ background-color:#eee;   
+}    
+
+.hide-bullets {
+    list-style:none;
+    margin-left: -40px;
+    margin-top:20px;
+}
+
+textarea:focus,
+input[type="text"]:focus, input[type="password"]:focus
+{   
+  /*border-color: rgba(52, 219, 11);
+  box-shadow: 0 1px 1px rgba(255, 255, 255) inset, 0 0 5px rgba(52, 219, 11);
+  outline: 0 none;*/
+  -webkit-filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.5));
+    filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.5));
+}
+
+#search-input {
+    background-image: url('../img/searchicon.png');
+    background-size: 25px;
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+    margin-top: 10px;
+
+}
+
+/*#pinBoot {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+}
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+.white-panel {
+  position: absolute;
+  background: white;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+}
+.white-panel h1 {
+  font-size: 1em;
+}
+.white-panel h1 a {
+  color: #A92733;
+}
+.white-panel:hover {
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  margin-top: -5px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}*/
+
+.header {
+    text-align: left;
+    background-color:    #6286c4 ;
+    color:   white;
+    vertical-align: center;
+    margin:0 auto;
+    overflow: auto;
+    padding: 100px 100px 50px 100px;
+    -moz-box-shadow: inset 0 -10px 12px -14px #000000;
+    -webkit-box-shadow: inset 0 -10px 12px -14px #000000;
+    box-shadow: inset 0 -10px 12px -14px #000000;
+}
+
+.activity-container {
+    padding: 50px 50px 50px 50px;
+}
+
+.profile-card {
+    background-color:  #1f618d   ;
+  margin-bottom: 20px;
+			
+		}
+		
+.profile-pic {
+  border-radius: 50%;
+  position: absolute;
+  top: -65px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 1;
+  max-width: 100px;
+  -webkit-transition: all 0.4s;
+		  transition: all 0.4s;
+				}
+
+				
+.profile-info {
+		color: #BDBDBD;
+		padding: 25px;
+	    position: relative;
+	    margin-top: 15px;
+				}
+		
+.profile-info h2 {
+	color: #E8E8E8;
+    letter-spacing: 4px;
+	  padding-bottom: 12px;
+				}
+				
+.profile-info span {
+	display: block;
+    font-size: 12px;
+    color: #4CB493;
+	letter-spacing: 2px;
+			}
+
+.profile-info a {
+	 color: #4CB493;
+		}
+.profile-info i {
+	    padding: 15px 35px 0px 35px;
+		}
+		
+
+.profile-card:hover .profile-pic {
+	
+	transform: scale(1.1);
+		}
+
+.profile-card:hover .profile-info hr  {
+	opacity: 1;
+}		
+		
+/* Underline From Center */
+.hvr-underline-from-center {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+}
+.hvr-underline-from-center:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 52%;
+  right: 52%;
+  bottom: 0;
+  background: #FFFFFF;
+  border-radius: 50%;
+  height: 3px;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.profile-card:hover .hvr-underline-from-center:before, .profile-card:focus .hvr-underline-from-center:before, .profile-card:active .hvr-underline-from-center:before {
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #CECECE;
+}
+

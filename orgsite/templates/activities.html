@@ -1,0 +1,48 @@
+{% extends "index.html" %}
+
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/navbar2.css' %}" type = "text/css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/activities.css' %}" type = "text/css"/>
+{% endblock %}
+
+{% block content %}
+    <header>
+        <div class="header">
+            <h1><span>Activities</span></h1>
+        </div>
+    </header>
+    
+    <div class="activity-container">
+        <input type="text" id="search-input" onkeyup="searchActs()" placeholder="Search for activities/venues..">
+        <div class="col-lg-12">
+            <div class="row"><p></p></div>
+            <ul id="act-list" class="hide-bullets">
+                {% for activity in activities %}
+                <li>
+                <div class="col-md-4 clear-fix">
+                    <div class="profile-card text-center">
+                        <img class="img-responsive" src="{{ activity.avatar_url }}">
+                        <div class="profile-info">
+                            <img class="profile-pic" src="{{ activity.user.organization.avatar_url }}" style="height:50%">
+                            <h2 class="hvr-underline-from-center">{{ activity.Activity_Name }}<span>{{ activity.venue }}</span></h2>
+                            <div>{{activity.description}}</div>
+                            <a href="http://www.twitter.com/mike_youngg"><i class="fa fa-twitter fa-2x"></i></a>
+                            <a href="mailto:michael_y@live.co.uk"><i class="fa fa-envelope-o fa-2x"></i></a>
+                            <a href="http://www.linkedin.com"><i class="fa fa-linkedin fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    
+{% endblock %}	
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'js/activities.js' %}"></script>
+{% endblock %}

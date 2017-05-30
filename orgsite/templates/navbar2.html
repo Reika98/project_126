@@ -1,11 +1,11 @@
 <nav class="navbar navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <button type="button" class="navbar-toggle collapsed glyphicon glyphicon-align-justify" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
+        <!--<span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>-->
       </button>
       <a class="navbar-brand" href="{% url 'home' %}">UNISO</a>
     </div>
@@ -14,6 +14,7 @@
         <!--<li class="active"><a href="#">Home</a></li>-->
         <li><a class="active base" href="/#organizations">ORGANIZATIONS</a></li>
         <li><a class="base" href="/#activities">ACTIVITIES</a></li>
+        <li><a class="base" href="{% url 'venues' %}">VENUES</a></li>
         <li><a class="base" href="{% url 'faqs' %}">FAQs</a></li>  
       </ul>
       <ul class="nav navbar-nav navbar-right">

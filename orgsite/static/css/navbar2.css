@@ -1,31 +1,27 @@
-body {
-    font-family: 'Raleway', sans-serif;
-}
-
 .navbar {
   position: absolute;
-  background-color: #EFF0EB;
-  background: #EFF0EB;
-  border-color: #EFF0EB;
+  background-color: #154360 ;
+  background: #154360;
+  border-color: #154360;
   padding-top: 0px;
   margin-bottom: 0 !important;
-
-  box-shadow: 5px 0px 10px 2px black;
+  box-shadow: 0px 0px 10px 1px black;
 }
 
 .navbar a {
-  color: darkgreen;
+  color: white;
 }
 
 ul.nav li a {
-  color: darkgreen;
+  color: white;
   display: inline-block;
 
   text-decoration: none;
 }
 
-ul.nav li a::after {
-    background: darkgreen;
+.nav .base:after {
+    border-bottom: 0.10em solid white;
+    border-top: 0.10em solid white;
 }
 
 @media only screen and (max-width : 790px) {

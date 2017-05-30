@@ -1,0 +1,50 @@
+{% extends "index.html" %}
+
+{% load static %}
+{% block styles %}
+
+    <link rel="stylesheet" href="{% static 'css/navbar2.css' %}" type = "text/css"/>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
+    <link rel="stylesheet" href="{% static 'css/venues.css' %}" type = "text/css"/>
+{% endblock %}
+
+{% block content %}
+    <header>
+        <div class="header">
+            <h1><span>Venues</span></h1>
+        </div>
+    </header>
+    
+    <div class="container">
+        <input type="text" id="search-input" onkeyup="searchVens()" placeholder="Search for venues...">
+        <!--<div class="notice notice-success">
+            <strong>Notice</strong> notice-success
+        </div>
+        <div class="notice notice-danger">
+            <strong>Notice</strong> notice-danger
+        </div>-->
+        <ul id="ven-list" class="hide-bullets">
+            {% for venue in venues %}
+            <li>
+            <div class="notice notice-info">
+                <strong>{{ venue.venue }} </strong>{{ venue.Activity_Name }} {{ venue.description }}
+            </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <!--<div class="notice notice-warning">
+            <strong>Notice</strong> notice-warning
+        </div>
+        <div class="notice notice-lg">
+            <strong>Big notice</strong> notice-lg
+        </div>
+        <div class="notice notice-sm">
+            <strong>Small notice</strong> notice-sm
+        </div>-->
+    </div>
+    
+{% endblock %}	
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'js/venues.js' %}"></script>    
+{% endblock %}

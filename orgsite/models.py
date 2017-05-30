@@ -16,18 +16,18 @@ class Organization(models.Model):
     user = models.OneToOneField(User, related_name='organization')
     shortcut = models.CharField(max_length=15)
     email = models.EmailField()
-    phone = models.CharField(primary_key=True, max_length=10, validators=[RegexValidator(r'^\d{1,10}$')])
-    description = models.TextField()
-    mission = models.TextField()
-    vision = models.TextField()
-    contact = models.TextField()
+    phone = models.CharField(blank=True, max_length=10, validators=[RegexValidator(r'^\d{1,10}$')])
+    description = models.TextField(blank=True)
+    mission = models.TextField(blank=True)
+    vision = models.TextField(blank=True)
+    contact = models.TextField(blank=True)
     logo = models.ImageField(upload_to=logo_upload_path, blank=True)
 
     @property
     def avatar_url(self):
         if self.logo:
             return self.logo.url
-        return static('img/UP_logo.png')
+        return static('img\default_logo.png')
 
     def render_shortcut(self):
         return '{}'.format(self.user.username)
@@ -37,20 +37,19 @@ class Organization(models.Model):
 
 class FAQs(models.Model):
     question = models.CharField(max_length=150)
-    answer = models.CharField(max_length=500)
-
+    answer = models.TextField()
     def __str__(self):
-        return self.id
+        return self.question
 
 def avatar_upload_path(instance, filename):
     return './storage/user_{}_{}'.format(instance.user.username, filename)
 
 class Activity(models.Model):
     user = models.ForeignKey(User, related_name='activity')
-    activity_name = models.CharField(name='Activity_Name',max_length=50)
+    activity_name = models.CharField(name='Activity_Name', max_length=50)
     description = models.TextField()
     avatar = models.FileField(upload_to=avatar_upload_path, blank=True)
-    venue = models.TextField()
+    venue = models.TextField(blank=True)
     when_created = models.DateTimeField(auto_now_add=True)
 
     @property
