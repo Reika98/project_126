@@ -59,17 +59,14 @@
 
 ![search organization by batch](https://cloud.githubusercontent.com/assets/15230563/26589491/c50ad042-458a-11e7-93ab-3b6d6a77c632.png)
 
-**VIEW LATEST POSTED ACTIVITIES** - In another section in the homepage, the latest 6 activities, could be events or announcements, posted by the different organizations are placed in a slider for the users to swipe for easy navigation. These 6 activities are arranged in a manner that the latest posted activity is on the first slider followed by the later ones. Beside the slider is a set of basic information about the activity. The name of the organization can be clicked, and it redirects the page to the organization's profile to read more about the event. 
+**VIEW LATEST POSTED ACTIVITIES** - In another section in the homepage, the latest 6 activities, could be events or announcements, posted by the different organizations are placed in a slider for the users to swipe for easy navigation. These 6 activities are arranged in a manner that the latest posted activity is on the first slider followed by the later ones. Beside the slider is a set of basic information about the activity. The image of the activity can be clicked, and it redirects the page to the organization's profile to read more about the event. 
 
-*Latest Activity in Slider*
-
-![view latest posted activity in slider](https://cloud.githubusercontent.com/assets/15230563/26589505/c8d0434c-458a-11e7-863e-fb7936a255a6.png)
 
 *Six Latest Activities in Slider*
 
 ![view latest posted activities 6 maximum](https://cloud.githubusercontent.com/assets/15230563/26589519/cc1ab456-458a-11e7-9c7a-4f77847ad204.png)
 
-**VIEW LIST OF ACTIVITIES** - Under the slider for the 6 activities, a button can be found so the users can be able to view not just 6 but all the activities posted by the organizations in another page. The list of activities are also arranged in a way that the latest one is found in the beginning followed by the later ones. Similar to the slider, every activity has an organization name which is also clickable that can proceed to the organization's profile to learn more about the event or announcement, and its other activities.
+**VIEW LIST OF ACTIVITIES** - Under the slider for the 6 activities, a button can be found so the users can be able to view not just 6 but all the activities posted by the organizations in another page. The list of activities are also arranged in a way that the latest one is found in the beginning followed by the later ones. Similar to the slider, every activity is also clickable that can proceed to the organization's profile to learn more about the event or announcement, and its other activities.
 
 ![view all activities](https://cloud.githubusercontent.com/assets/15230563/26589501/c819d4fe-458a-11e7-9a14-c1773e07e509.png)
 
