@@ -16,7 +16,7 @@ class Organization(models.Model):
     user = models.OneToOneField(User, related_name='organization')
     shortcut = models.CharField(max_length=15)
     email = models.EmailField()
-    phone = models.CharField(primary_key=True, max_length=10, validators=[RegexValidator(r'^\d{1,10}$')])
+    phone = models.CharField(max_length=10, validators=[RegexValidator(r'^\d{1,10}$')])
     description = models.TextField()
     mission = models.TextField()
     vision = models.TextField()
@@ -50,14 +50,13 @@ class Activity(models.Model):
     activity_name = models.CharField(name='Activity_Name',max_length=50)
     description = models.TextField()
     avatar = models.FileField(upload_to=avatar_upload_path, blank=True)
-    venue = models.TextField()
+    venue = models.CharField(max_length=150, blank=True)
     when_created = models.DateTimeField(auto_now_add=True)
 
     @property
     def avatar_url(self):
         if self.avatar:
             return self.avatar.url
-        return static('img/UP_logo.png')
 
     def __str__(self):
         return self.Activity_Name
