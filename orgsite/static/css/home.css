@@ -8,14 +8,12 @@ a:visited {
 
 a:hover {
     text-decoration: none;
-    color: blue;
+    color: #FB5816;
 }
 
 .row {
     padding: 0;
 }
-
-
 
 .intro {
     text-align: center;
@@ -25,14 +23,29 @@ a:hover {
     margin: 0;
     overflow: auto;
     padding-bottom: 50px;
+    border: black;
 }
 
 #organizations {
-    background-color: #EFF0EB;
+    background-color: #FB5816;
+}
+
+body {
+    background-color: #fee0d4;
+    font-family: 'Poppins', sans-serif;
+}
+
+.org-name {
+    padding-top: 5px;
+    margin: 0;
 }
 
 .org-a {
-    color: black;
+    color: white;
+}
+
+.org-a span {
+    font-size: 25px;
 }
 
 .org-logo {
@@ -107,6 +120,9 @@ td {
         -webkit-columns: 3;
         -moz-columns: 3;
     }
+     .text, .space{
+        display: none;
+    }
 }
 
 @media only screen and (min-width : 320px) {
@@ -118,6 +134,10 @@ td {
         width: 100%;
         height: 100%;
         margin: 0;
+    }
+
+    .text, .space{
+        display: none;
     }
 
     .intro {
@@ -136,9 +156,15 @@ td {
     }
 
 
+
+
 }
 
 @media only screen and (min-width : 600px) {
+    .text, .space{
+        display: initial;
+    }
+
     .intro {
         padding-top: 120px;
         min-height: 350px;
@@ -165,6 +191,14 @@ td {
     .org-list-item {
         vertical-align: middle; 
         height: 100%;
+    }
+
+    #first-slider .slide1 h3, #first-slider .slide2 h3, #first-slider .slide3 h3, #first-slider .slide4 h3{
+        font-size: 20px;
+    }
+
+    #first-slider .slide1 h4,#first-slider .slide2 h4,#first-slider .slide3 h4,#first-slider .slide4 h4{
+        font-size: 20px;
     }
 
 }
@@ -269,7 +303,7 @@ td {
 
 #first-slider .carousel-control {
     width: 6%;
-        text-shadow: none;
+    text-shadow: none;
 }
 
 

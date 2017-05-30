@@ -12,4 +12,8 @@ $(document).ready(function() {
     $('.timeline-panel').click(function() {
 	    $('.timeline-body', this).toggle(); // p00f
 	});
+
+	$("#tab1").click(function() {
+	    $("#add").hide();
+	});
 });

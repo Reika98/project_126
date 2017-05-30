@@ -5,7 +5,8 @@ http://www.jqueryscript.net/layout/Simple-jQuery-Plugin-To-Create-Pinterest-Styl
 */
 
 body {
- background-color:#eee;   
+ background-color: #fb672b;   
+ font-family: 'Poppins', sans-serif;
 }    
 
 .hide-bullets {
@@ -71,12 +72,12 @@ img {
 
 .header {
     text-align: left;
-    background-color:    #6286c4 ;
-    color:   white;
+    background-color:    #fee0d4 ;
+    color:   #154360;
     vertical-align: center;
     margin:0 auto;
     overflow: auto;
-    padding: 100px 100px 50px 100px;
+    padding: 75px 25px 25px 25px;
     -moz-box-shadow: inset 0 -10px 12px -14px #000000;
     -webkit-box-shadow: inset 0 -10px 12px -14px #000000;
     box-shadow: inset 0 -10px 12px -14px #000000;
@@ -87,10 +88,10 @@ img {
 }
 
 .profile-card {
-    background-color:  #1f618d   ;
+  background-color:  #154360;
   margin-bottom: 20px;
-			
-		}
+  box-shadow: 1px 1px 1px 1px black;
+}
 		
 .profile-pic {
   border-radius: 50%;
@@ -102,42 +103,41 @@ img {
   z-index: 1;
   max-width: 100px;
   -webkit-transition: all 0.4s;
-		  transition: all 0.4s;
-				}
+	transition: all 0.4s;
+}
 
 				
 .profile-info {
-		color: #BDBDBD;
-		padding: 25px;
-	    position: relative;
-	    margin-top: 15px;
-				}
+  color: #BDBDBD;
+  padding: 25px;
+  position: relative;
+  margin-top: 15px;
+}
 		
 .profile-info h2 {
-	color: #E8E8E8;
-    letter-spacing: 4px;
-	  padding-bottom: 12px;
-				}
+  color: #E8E8E8;
+  letter-spacing: 4px;
+  padding-bottom: 12px;
+}
 				
 .profile-info span {
-	display: block;
-    font-size: 12px;
-    color: #4CB493;
-	letter-spacing: 2px;
-			}
+  display: block;
+  font-size: 12px;
+  color: #4CB493;
+  letter-spacing: 2px;
+}
 
 .profile-info a {
 	 color: #4CB493;
-		}
+}
 .profile-info i {
-	    padding: 15px 35px 0px 35px;
-		}
+  padding: 15px 35px 0px 35px;
+}
 		
 
 .profile-card:hover .profile-pic {
-	
-	transform: scale(1.1);
-		}
+  transform: scale(1.1);
+}
 
 .profile-card:hover .profile-info hr  {
 	opacity: 1;

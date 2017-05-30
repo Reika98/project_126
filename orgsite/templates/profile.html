@@ -3,24 +3,35 @@
 {% load static %}
 
 {% block styles %}
+    <link rel="stylesheet" href="{% static 'css/navbar2.css' %}" type = "text/css"/>
     <link rel="stylesheet" href="{% static 'css/profile.css' %}" type = "text/css"/>
 {% endblock %}
 
 {% block content %}
-
     <div class="col-md-offset" style="padding-left: 15%;padding-right:15%">
+    <!-- Profile Header -->
         <div class="card hovercard">
-                <div class="card-background" >
-                    <img class="card-bkimg" alt="" src="{{ user.organization.avatar_url }}">
-                </div>
-                <div class="useravatar">
-                    <img alt="" src="{{ user.organization.avatar_url }}">
-                </div>
-                <div class="card-info"> 
-                    <a href="{% url 'profile' user.username %}"><span class="card-title">{{ user.organization.Org_Name }}</span></a>
-                </div>
+            <div class="card-background" >
+               
+            </div>
+            <div class="useravatar">
+                <img alt="" src="{{ org.organization.avatar_url }}">
+            </div>
+            <div class="card-info"> 
+                <p><span class="card-title">{{ org.organization.Org_Name }}</span></p>
+            </div>
+            <div class="card-details pull-left">
+                <h5><span class="card-title"><i class="glyphicon glyphicon-envelope">   {{ org.organization.email }}</i></span></h5>
+                <h5><span class="card-title"><i class="glyphicon glyphicon-phone-alt">    {{ org.organization.phone }}</i></span></h5>
+            </div>
+            {% ifequal org.organization.user request.user %}
+            <div class="pull-right">
+                <button type="button" class="btn btn-warning btn-circle btn-lg" data-toggle="modal" data-target="#editModal"><i class="glyphicon glyphicon-edit"></i></button>  
+                <button type="button" class="btn btn-warning btn-circle btn-lg" data-toggle="modal" data-target="#addModal"><i class="glyphicon glyphicon-plus" ></i></button>
+            </div>
+            {% endifequal %}
         </div>
-
+    <!-- Profile Navigation Bar -->
         <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
             <div class="btn-group" role="group">
                 <button type="button" id="stars" class="btn btn-default" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
@@ -32,161 +43,112 @@
                     <div class="hidden-xs">Activities</div>
                 </button>
             </div>
-            <div class="btn-group" role="group">
-                <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-tower" aria-hidden="true"></span>
-                    <div class="hidden-xs">Accomplishments</div>
-                </button>
-            </div>
         </div>
-
+    <!-- Profile Navigation Content -->
         <div class="well">
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="tab1">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3 class="text-center">ABOUT THE ORGANIZATION</h3>
+                            <p>{{ org.organization.description }}</p>
                             <ul class="timeline">
                                 <li>
-                                  <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+                                  <div class="timeline-image">
+                                    <img class="img-circle img-responsive" src="{% static 'img/mission_icon.png' %}" alt="">
+                                  </div>
                                   <div class="timeline-panel">
                                     <div class="timeline-heading">
-                                      <h3 class="timeline-title">About</h3>
+                                      <h4>Mission</h4>
                                     </div>
                                     <div class="timeline-body">
-                                      <p>{{ user.organization.description }}</p>
+                                      <p class="text-muted">
+                                        {{ org.organization.mission }}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="timeline-inverted">
+                                  <div class="timeline-image">
+                                    <img class="img-circle img-responsive" src="{% static 'img/vision_icon.png' %}" alt="">
+                                  </div>
+                                  <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                      <h4>Vision</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                      <p class="text-muted">
+                                        {{ org.organization.vision }}
+                                      </p>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="timeline-image">
+                                    <img class="img-circle img-responsive" src="{% static 'img/connect_icon.png' %}" alt="">
+                                  </div>
+                                  <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                      <h4>Connect</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                      <p class="text-muted">
+                                        {{ org.organization.contact }}
+                                      </p>
                                     </div>
                                   </div>
                                 </li>
                             </ul>
-                            <ul class="timeline">
-                                <li>
-                                  <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
-                                  <div class="timeline-panel">
-                                    <div class="timeline-heading">
-                                      <h3 class="timeline-title">Mission</h3>
-                                    </div>
-                                    <div class="timeline-body">
-                                      <p>{{ user.organization.mission }}</p>
-                                    </div>
-                                  </div>
-                                </li>
-                            </ul>
-                            <ul class="timeline">
-                                <li>
-                                  <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
-                                  <div class="timeline-panel">
-                                    <div class="timeline-heading">
-                                      <h3 class="timeline-title">Vission</h3>
-                                    </div>
-                                    <div class="timeline-body">
-                                      <p>{{ user.organization.vision }}</p>
-                                    </div>
-                                  </div>
-                                </li>
-                            </ul>
-                            <ul class="timeline">
-                                <li>
-                                  <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
-                                  <div class="timeline-panel">
-                                    <div class="timeline-heading">
-                                      <h3 class="timeline-title">Contacts</h3>
-                                    </div>
-                                    <div class="timeline-body">
-                                      <p>{{ user.organization.description }}</p>
-                                    </div>
-                                  </div>
-                                </li>
-                            </ul>
-                </div>
-                <div class="tab-pane fade in" id="tab2">
-                    {% if success %}
-                        <div class="modal fade" id="myModal" role="dialog">
-                            <div class="modal-dialog modal-sm">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Success</h4>
-                                    </div>
-                                <div class="modal-body">
-                                    <p>This is a small modal.</p>
-                                </div>
-                                    <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                        <p>Success <a href="{% url 'sign_in' %}">Okay</a></p>
-                    {% else %}
-                    <div class="modal fade" id="addModal" role="dialog">
-                        <div class="modal-dialog">
-                        <div class="modal-content">
-                            <form action="{% url 'add_activity' %}" method="POST" id="addactivity" enctype="multipart/form-data">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4><span class="glyphicon glyphicon-plus-sign"></span> Add Activity</h4>
-                                </div>
-                                <div class="modal-body">
-                                    {% csrf_token %}
-                                    <div class="form-group">
-                                        <label for="act_name"><span class="glyphicon glyphicon-user"></span> Activity Name</label>
-                                        <input name="name" type="text" class="form-control" id="act_name" placeholder="Enter name of activity">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="desc"><span class="glyphicon glyphicon-eye-open"></span> Description</label><br>
-                                        <textarea name="description" cols="75" rows="5" id="desc" placeholder="Enter brief description of activity"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="image"><span class="glyphicon glyphicon-camera"></span> Publicity Material</label><br>
-                                        <form action="/action_page.php">
-                                            <input type="file" name="avatar" accept="image/*">
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-success btn-default pull-right"><span class="glyphicon glyphicon-ok"></span> Add</button>     
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
                         </div>
                     </div>
-                    {% endif %}
-                    {% for activity in activity %}
+                </div>
+                <div class="tab-pane fade in" id="tab2">
+                        {% if not activity %}
+                            <h3> No activities to show </h3>
+                        {% else %}
+                        {% for act in activity %}
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h1 class="panel-title pull-left">{{ activity.Activity_Name }}</h1>
+                                <b><h1 class="panel-title pull-left">{{ act.Activity_Name }}</h1></b>
+                                {% ifequal org.organization.user request.user %}
                                 <ul class="btn btn-default pull-right">
                                     <li class="dropdown" id="menuUser">
                                         <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navUser"><span class="glyphicon glyphicon-triangle-bottom"></span></a>
                                         <div class="dropdown-menu dropdown-menu-right" style="padding:17px;">
-                                            <input type="hidden" value="{{ activity.id }}">
-                                            <a data-toggle="modal" href="#addModal"> Add Activity</a><br>
-                                            <a data-toggle="modal" href="#{{activity.id}}"> Edit Activity</a><br>
-                                            <a data-toggle="modal" href="{% url 'delete_activity' activity.id %}"> Delete Activity</a>
+                                            <input type="hidden" value="{{ act.id }}">
+                                            <a data-toggle="modal" href="#{{act.id}}"> Edit Activity</a><br>
+                                            <a data-toggle="modal" href="{% url 'delete_activity' act.id %}"> Delete Activity</a>
                                         </div>
                                     </li>
                                 </ul>
+                                {% endifequal %}
+                                <h5 class="text-muted">{{ act.when_created|date:'D M d, Y f A' }}</h5>
                             </div>
                             <div class="panel-body text-center">
-                                <img class="img-responsive center-block" alt="" src="{{ activity.avatar_url }}">
-                                <h3>{{ activity.description }}</h3>
+                                {% if act.avatar_url %}
+                                <img class="img-responsive center-block" alt="" src="{{ act.avatar_url }}">
+                                {% endif %}
+                                <h3>{{ act.description }}</h3>
                             </div>
                         </div>
-                        <div class="modal fade" id="{{activity.id}}" role="dialog">
+                        <div class="modal fade" id="{{act.id}}" role="dialog">
                             <div class="modal-dialog">
                             <div class="modal-content">
-                                <input type="hidden" name="id" value="{{ activity.id }}">
-                                <form action="{% url 'edit_activity' activity.id %}" method="POST" id="addactivity" enctype="multipart/form-data">
+                                <input type="hidden" name="id" value="{{ act.id }}">
+                                <form action="{% url 'edit_activity' act.id %}" method="POST" id="addactivity" enctype="multipart/form-data">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4><span class="glyphicon glyphicon-plus-sign"></span> Edit Activity</h4>
+                                        <h4><span class="glyphicon glyphicon-edit"></span> Edit Activity</h4>
                                     </div>
                                     <div class="modal-body">
                                         {% csrf_token %}
                                         <div class="form-group">
                                             <label for="act_name"><span class="glyphicon glyphicon-user"></span> Activity Name</label>
-                                            <input name="name" type="text" class="form-control" id="act_name" value="{{ activity.Activity_Name }}">
+                                            <input name="name" type="text" class="form-control" id="act_name" value="{{ act.Activity_Name }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="desc"><span class="glyphicon glyphicon-eye-open"></span> Description</label><br>
-                                            <textarea name="description" cols="75" rows="5" id="desc">{{ activity.description }}</textarea>
+                                            <textarea name="description" cols="75" rows="5" id="desc">{{ act.description }}</textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="image"><span class="glyphicon glyphicon-camera"></span> Publicity Material</label><br>
@@ -204,14 +166,101 @@
                         </div>
                         {% endfor %}
                     </div>
-                <div class="tab-pane fade in" id="tab3">
-                    <h3>This is tab 3</h3>
-                </div>
+                    {% endif %}
             </div>
         </div>
+        <div class="modal fade" id="addModal" role="dialog">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form action="{% url 'add_activity' %}" method="POST" id="addactivity" enctype="multipart/form-data">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4><span class="glyphicon glyphicon-plus-sign"></span> Add Activity</h4>
+                                </div>
+                                <div class="modal-body">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="act_name"><span class="glyphicon glyphicon-pencil"></span> Activity Name</label>
+                                        <input name="name" type="text" class="form-control" id="act_name" placeholder="Enter name of activity">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="desc"><span class="glyphicon glyphicon-eye-open"></span> Description</label><br>
+                                        <textarea name="description" cols="75" rows="5" id="desc" placeholder="Enter brief description of activity"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="image"><span class="glyphicon glyphicon-camera"></span> Publicity Material</label><br>
+                                        <form action="/action_page.php">
+                                            <input type="file" name="avatar" accept="image/*">
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-success btn-default pull-right"><span class="glyphicon glyphicon-ok"></span> Add</button> 
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="editModal" role="dialog">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form action="{% url 'edit_profile' %}" method="POST" id="editactivity" enctype="multipart/form-data">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4><span class="glyphicon glyphicon-edit"></span> Edit Profile</h4>
+                                </div>
+                                <div class="modal-body">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="act_name"> Organization Name</label>
+                                        <input name="name" type="text" class="form-control" id="act_name" value="{{ org.organization.Org_Name }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="shorten_name"> Shorten Name:</label>
+                                        <input name="shortcut" type="text" class="form-control" id="shorten_name" value="{{ org.organization.shortcut }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="act_name"> Email:</label>
+                                        <input name="email" type="text" class="form-control" id="act_name" value="{{ org.organization.email }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="act_name"> Phone</label>
+                                        <input name="phone" type="text" class="form-control" id="act_name" value="{{ org.organization.phone }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="desc"> Description</label><br>
+                                        <textarea name="description" cols="75" rows="5" id="desc" >{{ org.organization.description }}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="desc"> Mission</label><br>
+                                        <textarea name="mission" cols="75" rows="5" id="desc">{{ org.organization.mission }}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="desc"> Vision</label><br>
+                                        <textarea name="vision" cols="75" rows="5" id="desc">{{ org.organization.vision }}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="desc"> Contact</label><br>
+                                        <textarea name="contact" cols="75" rows="5" id="desc">{{ org.organization.contact }}</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="image"></span> Organization Logo</label><br>
+                                        <form action="/action_page.php">
+                                            <input type="file" name="logo" accept="image/*">
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-success btn-default pull-right"><span class="glyphicon glyphicon-ok"></span> Edit</button> 
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
     </div>
 {% endblock %}
 
 {% block js %}
     <script type="text/javascript" src="{% static 'js/profile.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/faqs.js' %}"></script>
 {% endblock %}

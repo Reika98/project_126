@@ -99,10 +99,16 @@ jQuery(document).ready(function($) {
             $('#myCarousel').carousel(id);
         });
  
+        $('.carousel-control').click(function(){
+            var next = $('.item .active').removeClass('active').next();
+            if (next.length == 0) { next = $('.carousel-inner .item').first(); }
+            next.addClass('active');
+        });
  
         // When the carousel slides, auto update the text
         $('#myCarousel').on('slid.bs.carousel', function (e) {
                  var id = $('.item.active').data('slide-number');
-                $('#carousel-text').html($('#slide-content-'+id).html());
+                 var sid = '#slide-content-' + id; console.log(sid);
+                $('#carousel-text').html($(sid).html());
         });
 });

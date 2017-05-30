@@ -1,5 +1,6 @@
 body {
-  background-color: #154360;
+  /*background-color: #154360;*/
+  background-color: #904971;
 }
 
 .glyphicon-align-justify {
@@ -8,7 +9,7 @@ body {
 
 .dropdown-menu.dropdown-menu-right {
   background-color:   #154360;
-  color: white;
+  color: #FB5816;
 }
 
 .navbar a {
@@ -75,8 +76,8 @@ ul.nav li a {
     top: 0;
     left: 50%;
     width: 0;
-    border-bottom: 0.10em solid white;
-    border-top: 0.10em solid white;
+    border-bottom: 0.10em solid #FB5816;
+    border-top: 0.10em solid #FB5816;
     transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -95,7 +96,7 @@ ul.nav li a {
 
 ul.nav li a:hover {
   background-color: transparent;
-
+  color: #FB5816;
 }
 
 @media only screen and (max-width : 790px) {

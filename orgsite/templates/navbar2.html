@@ -31,13 +31,14 @@
                   <a class="base dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin"></span> LOGIN</a>
                   <div class="dropdown-menu dropdown-menu-right" style="padding:17px;">
                       <form action="{% url 'login' %}" method="POST"> 
+                          {{ error }}
                           {% csrf_token %}    
                           <label for="username">Username: </label>
                           <input type="text" id="username" name="username" value="{{ username }}">
                           <label for="password">Password: </label>
                           <input type="password" id="password" name="password">
                           <p></p>
-                          <button>Login</button>
+                          <button class="btn btn-warning">Login</button>
                       </form>
                   </div>
               </li>

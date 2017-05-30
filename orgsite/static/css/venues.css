@@ -4,43 +4,6 @@
     margin-top:20px;
 }
 
-textarea:focus,
-input[type="text"]:focus, input[type="password"]:focus
-{   
-  /*border-color: rgba(52, 219, 11);
-  box-shadow: 0 1px 1px rgba(255, 255, 255) inset, 0 0 5px rgba(52, 219, 11);
-  outline: 0 none;*/
-  -webkit-filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.5));
-    filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.5));
-}
-
-#search-input {
-    background-image: url('../img/searchicon.png');
-    background-size: 25px;
-    background-position: 10px 12px; /* Position the search icon */
-    background-repeat: no-repeat; /* Do not repeat the icon image */
-    width: 100%; /* Full-width */
-    font-size: 16px; /* Increase font-size */
-    padding: 12px 20px 12px 40px; /* Add some padding */
-    border: 1px solid #ddd; /* Add a grey border */
-    margin-bottom: 12px; /* Add some space below the input */
-    margin-top: 10px;
-
-}
-
-.header {
-    text-align: left;
-    background-color:    #6286c4 ;
-    color:   white;
-    vertical-align: center;
-    margin:0 auto;
-    overflow: auto;
-    padding: 100px 100px 50px 100px;
-    -moz-box-shadow: inset 0 -10px 12px -14px #000000;
-    -webkit-box-shadow: inset 0 -10px 12px -14px #000000;
-    box-shadow: inset 0 -10px 12px -14px #000000;
-}
-
 .notice {
     padding: 15px;
     background-color: #fafafa;
@@ -60,8 +23,8 @@ input[type="text"]:focus, input[type="password"]:focus
 }
 
 .notice-info {
-    border-color: #45ABCD;
+    border-color: #154360;
 }
 .notice-info>strong {
-    color: #45ABCD;
+    color: #154360;
 }

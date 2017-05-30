@@ -8,21 +8,19 @@
   box-shadow: 0px 0px 10px 1px black;
 }
 
-.navbar a {
-  color: white;
-}
 
 ul.nav li a {
-  color: white;
   display: inline-block;
 
   text-decoration: none;
 }
 
-.nav .base:after {
-    border-bottom: 0.10em solid white;
-    border-top: 0.10em solid white;
+a:hover {
+    text-decoration: none;
+    color: #FB5816;
 }
+
+
 
 @media only screen and (max-width : 790px) {
   ul.nav li {

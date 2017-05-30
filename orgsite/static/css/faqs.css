@@ -2,19 +2,6 @@
   box-sizing: border-box;
 }
 
-.header {
-    text-align: left;
-    background-color:   #e0af1d;
-    color:   #154360;
-    vertical-align: center;
-    margin:0 auto;
-    overflow: auto;
-    padding: 100px 100px 50px 100px;
-    -moz-box-shadow: inset 0 -10px 12px -14px #000000;
-    -webkit-box-shadow: inset 0 -10px 12px -14px #000000;
-    box-shadow: inset 0 -10px 12px -14px #000000;
-}
-
 .clickable{
     cursor: pointer;   
 }

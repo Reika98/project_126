@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^add-activity/$', views.add_activity_view, name='add_activity'),
     url(r'^edit-activity/(?P<activity>\d+)$', views.edit_activity_view, name='edit_activity'),
     url(r'^delete-activity/(?P<id>\d+)$', views.delete_activity_view, name='delete_activity'),
+    url(r'^edit-profile/$', views.edit_profile_view, name='edit_profile'),
     url(r'^(?P<username>\w+)$', views.profile_view, name='profile')
 ]
